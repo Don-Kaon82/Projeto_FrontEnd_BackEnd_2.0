@@ -29,7 +29,6 @@ async function cadastrar(req, res) {
 async function login(req, res) {
     try {
         const { email, senha } = req.body;
-        
         const usuario = await buscarPorEmail(email);
 
         if (!usuario) {
@@ -43,7 +42,7 @@ async function login(req, res) {
         }
 
         res.json({ mensagem: "Login realizado com sucesso "});
-        
+
     } catch (erro) {
         console.error(erro);
         res.status(500).json({ erro: "Erro no servidor" });
